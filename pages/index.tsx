@@ -3,6 +3,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import styled from "@emotion/styled";
 import Link from "next/link";
+import FeedbackForm from "components/FeedbackForm";
 
 const title: string = "Nextjs something";
 const Container = styled.div``;
@@ -60,8 +61,9 @@ export default function Home({
       <Main className={styles.main}>
         <BlogTitle className={styles.title}>
           Welcome to <a href="https://nextjs.org">{title}</a>
-          <div>{LoadPosts({ posts })}</div>
         </BlogTitle>
+        <div>{LoadPosts({ posts })}</div>
+        <FeedbackForm />
       </Main>
     </Container>
   );
