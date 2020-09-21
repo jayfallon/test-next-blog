@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   GetStaticPropsContext,
   InferGetServerSidePropsType,
@@ -11,6 +12,11 @@ export default function BlogPost({
 }: InferGetServerSidePropsType<typeof getStaticProps>) {
   return (
     <Article>
+      <nav>
+        <Link href="/">
+          <a>home</a>
+        </Link>
+      </nav>
       <BlogPostImage
         src="/waranya-mooldee-Efj0HGPdPKs-unsplash.jpg"
         alt="bunny"
