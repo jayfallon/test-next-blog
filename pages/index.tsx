@@ -26,7 +26,9 @@ const PostTitle = styled.h2`
   font-size: 24px;
 `;
 
-const LoadPosts = ({ posts }) => {
+const LoadPosts = ({
+  posts,
+}: InferGetServerSidePropsType<typeof getStaticProps>) => {
   console.log({ posts });
   return (
     <List>
