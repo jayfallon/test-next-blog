@@ -29,7 +29,7 @@ const PostTitle = styled.h2`
 const LoadPosts = ({
   posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log({ posts });
+  // console.log({ posts });
   return (
     <List>
       {posts.map((post) => {

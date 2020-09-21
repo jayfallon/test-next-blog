@@ -3,7 +3,7 @@ import {
   InferGetServerSidePropsType,
   GetStaticPaths,
 } from "next";
-import { Article } from "components/Article";
+import { Article, BlogPostImage } from "components/Article";
 import type { Post } from "../index";
 
 export default function BlogPost({
@@ -11,6 +11,10 @@ export default function BlogPost({
 }: InferGetServerSidePropsType<typeof getStaticProps>) {
   return (
     <Article>
+      <BlogPostImage
+        src="/waranya-mooldee-Efj0HGPdPKs-unsplash.jpg"
+        alt="bunny"
+      />
       <h1>{post.title}</h1>
       <p>{post.body}</p>
     </Article>
