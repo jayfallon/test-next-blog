@@ -35,10 +35,11 @@ const LoadPosts = ({
       {posts.map((post) => {
         return (
           <ListItem key={post.id}>
-            <Link href={`/posts/${post.id}`}>
-              <a>hello</a>
+            <Link href="/posts/[id]" as={`/posts/${post.id}`}>
+              <a>
+                <PostTitle>{post.title}</PostTitle>
+              </a>
             </Link>
-            <PostTitle>{post.title}</PostTitle>
           </ListItem>
         );
       })}
