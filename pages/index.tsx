@@ -1,4 +1,4 @@
-import { InferGetServerSidePropsType } from "next";
+import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import styled from "@emotion/styled";
@@ -28,17 +28,17 @@ const PostTitle = styled.h2`
 
 const LoadPosts = ({
   posts,
-}: InferGetServerSidePropsType<typeof getStaticProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   console.log({ posts });
   return (
     <List>
-      {posts.map((p, i) => {
+      {posts.map((post) => {
         return (
-          <ListItem key={p.id}>
-            <Link href={`/posts/${p.id}`}>
+          <ListItem key={post.id}>
+            <Link href={`/posts/${post.id}`}>
               <a>hello</a>
             </Link>
-            <PostTitle>{p.title}</PostTitle>
+            <PostTitle>{post.title}</PostTitle>
           </ListItem>
         );
       })}
@@ -48,7 +48,7 @@ const LoadPosts = ({
 
 export default function Home({
   posts,
-}: InferGetServerSidePropsType<typeof getStaticProps>) {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Container>
       <Head>
@@ -76,7 +76,7 @@ export type Post = {
 export const getStaticProps = async () => {
   const res = await fetch("http://jsonplaceholder.typicode.com/posts");
 
-  const posts: Post = await res.json();
+  const posts: Post[] = await res.json();
 
   return {
     props: {
